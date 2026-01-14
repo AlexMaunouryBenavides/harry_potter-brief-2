@@ -7,10 +7,10 @@
     --font-carme: "Carme", sans-serif;
 
     /* Colors */
-    --color-hp-gold: #d4af37;
-    --color-hp-red: #7f0909;
-    --color-hp-green: #1a472a;
-    --color-hp-blue: #0e1a40;
+    --color-blackish: #0c0e14;
+    --color-orangish: #ca7322;
+    --color-orangish-50: #cbb096;
+    --color-bluish: #627c92;
   }
 }
 
@@ -23,19 +23,24 @@
     font-family: var(--font-carme);
   }
 
-  .text-hp-gold {
-    color: var(--color-hp-gold);
+  .text-blackish {
+    color: var(--color-blackish);
+  }
+  .bg-blackish {
+    background-color: var(--color-blackish);
   }
 
-  .text-hp-redish {
-    color: var(--color-hp-red);
+  .text-orangish {
+    color: var(--color-orangish);
+  }
+  .text-orangish-50 {
+    color: var(--color-orangish-50);
+  }
+  .text-bluish {
+    color: var(--color-bluish);
   }
 
-  .bg-hp-green {
-    background-color: var(--color-hp-green);
-  }
-
-  .bg-hp-blue {
-    background-color: var(--color-hp-blue);
+  .bg-bluish {
+    background-color: var(--color-bluish);
   }
 }
