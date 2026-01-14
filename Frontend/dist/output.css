@@ -166,33 +166,3 @@
     line-height: var(--tw-leading, var(--text-9xl--line-height));
   }
 }
-@layer theme {
-  :root {
-    --font-aladin: "Aladin", cursive;
-    --font-carme: "Carme", sans-serif;
-    --color-hp-gold: #d4af37;
-    --color-hp-red: #7f0909;
-    --color-hp-green: #1a472a;
-    --color-hp-blue: #0e1a40;
-  }
-}
-@layer utilities {
-  .font-aladin {
-    font-family: var(--font-aladin);
-  }
-  .font-carme {
-    font-family: var(--font-carme);
-  }
-  .text-hp-gold {
-    color: var(--color-hp-gold);
-  }
-  .text-hp-redish {
-    color: var(--color-hp-red);
-  }
-  .bg-hp-green {
-    background-color: var(--color-hp-green);
-  }
-  .bg-hp-blue {
-    background-color: var(--color-hp-blue);
-  }
-}
