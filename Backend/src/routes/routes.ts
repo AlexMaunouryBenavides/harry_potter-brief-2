@@ -1,3 +1,12 @@
-//  route pour afficher tout les characters (/characters)characterController.getAll
+import express from 'express';
+import CharacterController from '../controllers/CharacterController.js';
 
-// route pour afficher les perso de la maison ID : (/house[ID]/characters)houseController.getCharcterByHouse
+const router = express.Router();
+
+router.get('/characters', CharacterController.read);
+router.post('/characters', CharacterController.create);
+router.put('/characters/:id', CharacterController.update);
+router.post('/characters/:id', CharacterController.delete);
+
+
+export default router

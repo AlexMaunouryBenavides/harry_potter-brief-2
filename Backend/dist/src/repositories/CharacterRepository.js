@@ -1,10 +1,9 @@
 import path from "node:path";
 import fs from "node:fs/promises";
 export class CharacterRepository {
-    // Get the path since the package.json in the data folder + name file;
+    // récupère le chemin depuis le package.json qu'on concatène avec le dossier data et le fichier data.json
     filePath = path.join(process.cwd(), 'data', 'data.json');
-    // read method
-    async read() {
+    async findAll() {
         try {
             const response = await fs.readFile(this.filePath, 'utf-8');
             const characters = JSON.parse(response);
@@ -14,8 +13,8 @@ export class CharacterRepository {
             throw new Error(`Impossible de lire le fichier à l\'adresse suivante : , ${this.filePath}`);
         }
     }
-    // create method
-    async create(data) {
+    // Crée un personnage 
+    async post(data) {
         try {
             // lis le json file
             const response = await fs.readFile(this.filePath, 'utf-8');
@@ -30,15 +29,18 @@ export class CharacterRepository {
             throw new Error('Impossible de créer un personnage');
         }
     }
-    // update method
-    async update(idToEdit, data) {
+    // Met à jour les données d'un personnage selon l'ID
+    async updateById(idToEdit, data) {
         try {
             const response = await fs.readFile(this.filePath, 'utf-8');
             const characters = JSON.parse(response);
             for (let i = 0; i < characters.length; i++) {
                 if (characters[i].id === idToEdit) {
+                    // On remplace le personnage à la position [i] par un nouvelle objet
                     characters[i] = {
+                        // Copie toutes les propriétés du currentUser 
                         ...characters[i],
+                        // on remplace par les nouvelles data
                         ...data,
                     };
                 }
@@ -50,14 +52,16 @@ export class CharacterRepository {
             throw new Error('Impossible de mettre les données à jour');
         }
     }
-    // delete method
-    async delete(idToDelete) {
+    // Supprime un personnage selon son ID
+    async deleteById(idToDelete) {
         try {
             const response = await fs.readFile(this.filePath, 'utf-8');
             const characters = JSON.parse(response);
+            // Création d'un nouveau tableau qui contiendra les données qui ne seront pas supprimé
             let newArray = [];
             for (let i = 0; i < characters.length; i++) {
                 if (characters[i].id !== idToDelete) {
+                    // injection des données dans le nouveau tableau
                     newArray.push(characters[i]);
                 }
                 else {
@@ -71,9 +75,11 @@ export class CharacterRepository {
             throw Error('Impossible de supprimer les données demandées');
         }
     }
-    // save method
+    // Réécris les données dans le fichier JSON 
     async save(element) {
-        await fs.writeFile(this.filePath, JSON.stringify(element, null, 2), 'utf-8');
+        await fs.writeFile(this.filePath, 
+        // transforme les données en objet
+        JSON.stringify(element, null, 2), 'utf-8');
     }
 }
 //# sourceMappingURL=CharacterRepository.js.map
