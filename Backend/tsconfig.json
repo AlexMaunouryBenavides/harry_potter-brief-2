@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
+    "target": "esnext",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
 
@@ -12,8 +12,12 @@
 
     "sourceMap": true,
     "outDir": "dist",
+    "rootDir": "./",
 
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src"]
+  "ts-node": {
+    "esm": true
+  },
+  "include": ["src/**/*", "test-db.ts"]
 }
