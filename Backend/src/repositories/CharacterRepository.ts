@@ -18,6 +18,23 @@ export class CharacterRepository {
         }
     }
 
+    async findOneById(idToDisplay: string){
+        try {
+            const response = await fs.readFile(this.filePath, 'utf-8');
+            const characters = JSON.parse(response);
+
+            const result= [];
+            for(let i=0; i<characters.length; i++){
+                if(characters[i].id === idToDisplay){
+                    result.push(characters[i]);
+                }
+            }
+            return result; 
+        } catch (error) {
+            throw new Error('Impossible de lire le fichier !')
+        }
+    }
+
     // Crée un personnage 
     async post(data: Object) {
         try {

@@ -1,6 +1,6 @@
 import Character from "../Entities/CharacterEntity.js";
 import { CharacterRepository } from "../repositories/CharacterRepository.js";
-import { Request, Response } from "express";
+import { Request, response, Response } from "express";
 
 
 const characterRepository = new CharacterRepository();
@@ -13,7 +13,17 @@ export default class CharacterController {
             const characters = await characterRepository.findAll();
             res.status(200).json(characters);
         } catch (error) {
-            res.status(500).json({ message: 'Erreur de lecture' })
+            res.status(500).json({ message: 'Erreur de lecture' });
+        }
+    }
+
+    static async readOne(req: Request, res: Response){
+        try {
+            const idToDisplay = req.params.id as string;
+            const character= await characterRepository.findOneById(idToDisplay);
+            res.status(200).json(character);
+        } catch (error) {
+            res.status(500).json({message: 'Erreur de lecture'});
         }
     }
 
