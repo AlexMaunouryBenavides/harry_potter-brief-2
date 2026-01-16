@@ -1,3 +1,4 @@
+import characterFilter from "./utils/charactersFilter.js";
 async function fetchData() {
     const res = await fetch("../Data/data.json");
     if (!res.ok)
@@ -7,8 +8,8 @@ async function fetchData() {
 }
 function createCard(character) {
     return `
-    <div class="flex w-[300px] gap-10  bg-bluish-20 shadow-[7px_7px_15px_0px_rgba(100,126,148,0.2)]">
-          <img class="h-full w-[50%] object-cover" src=${character.image} alt="profil" />
+    <div class="flex w-75 gap-10 bg-bluish-20 shadow-[7px_7px_15px_0px_rgba(100,126,148,0.2)]">
+          <img class="h-full w-[50%] object-cover" src="${character.image}" alt="profil" />
           <div class="flex flex-col justify-center items-start gap-2.5">
             <div>
               <h3 class="font-aladin text-orangish text-[20px]">Name :</h3>
@@ -29,13 +30,20 @@ function createCard(character) {
 function displayCards(characters) {
     const container = document.getElementById("characterCardContainer");
     if (container) {
+        container.innerHTML = "";
         container.innerHTML = characters.map((character) => createCard(character)).join("");
     }
 }
 async function init() {
     const characters = await fetchData();
     displayCards(characters);
+    const input = document.querySelector("#filterInput");
+    input?.addEventListener("input", (e) => {
+        const target = e.target;
+        const value = target.value;
+        const filtered = characterFilter(characters, value);
+        displayCards(filtered);
+    });
 }
 init();
-export {};
 //# sourceMappingURL=main.js.map
