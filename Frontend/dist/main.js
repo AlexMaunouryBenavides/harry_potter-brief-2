@@ -1,6 +1,6 @@
 import characterFilter from "./utils/charactersFilter.js";
 async function fetchData() {
-    const res = await fetch("../Data/data.json");
+    const res = await fetch("http://localhost:4000/api/characters/");
     if (!res.ok)
         throw new Error("Error went fetching data");
     const data = await res.json();
@@ -40,7 +40,7 @@ async function init() {
     const input = document.querySelector("#filterInput");
     input?.addEventListener("input", (e) => {
         const target = e.target;
-        const value = target.value;
+        const value = target.value.toLowerCase();
         const filtered = characterFilter(characters, value);
         displayCards(filtered);
     });
