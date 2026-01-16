@@ -7,6 +7,7 @@ export class CharacterRepository {
     // récupère le chemin depuis le package.json qu'on concatène avec le dossier data et le fichier data.json
     private filePath = path.join(process.cwd(), 'data', 'data.json');
 
+    // Lit tout les personnages
     async findAll() {
         try {
             const response = await fs.readFile(this.filePath, 'utf-8');
@@ -76,7 +77,6 @@ export class CharacterRepository {
 
             for (let i = 0; i < characters.length; i++) {
                 if (characters[i].id !== idToDelete) {
-                    // injection des données dans le nouveau tableau
                     newArray.push(characters[i])
                 } else {
                     console.log('element supprimé !')
@@ -84,8 +84,6 @@ export class CharacterRepository {
             }
             
             this.save(newArray);
-
-            return characters;
         } catch (error) {
             throw Error('Impossible de supprimer les données demandées')
         }

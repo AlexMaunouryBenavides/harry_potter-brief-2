@@ -19,37 +19,7 @@ export default class CharacterController {
 
     static async create(req: Request, res: Response) {
         try {
-            const data = {
-                "id": "15e9f7ce4-b3a7-4254-b885-dae5c1f1d4a8",
-                "name": "Test Test",
-                "alternate_names": [
-                    "The Boy Who Lived",
-                    "The Chosen One",
-                    "Undesirable No. 1",
-                    "Potty"
-                ],
-                "species": "human",
-                "gender": "male",
-                "house": "Gryffindor",
-                "dateOfBirth": "31-07-1980",
-                "yearOfBirth": 1980,
-                "wizard": true,
-                "ancestry": "half-blood",
-                "eyeColour": "green",
-                "hairColour": "black",
-                "wand": {
-                    "wood": "holly",
-                    "core": "phoenix tail feather",
-                    "length": 11
-                },
-                "patronus": "stag",
-                "hogwartsStudent": true,
-                "hogwartsStaff": false,
-                "actor": "Daniel Radcliffe",
-                "alternate_actors": [],
-                "alive": true,
-                "image": "https://ik.imagekit.io/hpapi/harry.jpg"
-            }
+            const data = req.body;
 
             const newCharacter = new Character(
                 data.id,
@@ -84,37 +54,8 @@ export default class CharacterController {
 
     static async update(req: Request, res: Response) {
         try {
-            const idToEdit = "9e3f7ce4-b9a7-4244-b709-dae5c1f1d4a8";
-            const dataToEdit = {
-                "name": "Harry Potter",
-                "alternate_names": [
-                    "The Boy Who Lived",
-                    "The Chosen One",
-                    "Undesirable No. 1",
-                    "Potty"
-                ],
-                "species": "human",
-                "gender": "male",
-                "house": "Gryffindor",
-                "dateOfBirth": "31-07-1980",
-                "yearOfBirth": 1980,
-                "wizard": true,
-                "ancestry": "half-blood",
-                "eyeColour": "green",
-                "hairColour": "black",
-                "wand": {
-                    "wood": "holly",
-                    "core": "phoenix tail feather",
-                    "length": 11
-                },
-                "patronus": "stag",
-                "hogwartsStudent": true,
-                "hogwartsStaff": false,
-                "actor": "Daniel Radcliffe",
-                "alternate_actors": [],
-                "alive": true,
-                "image": "https://ik.imagekit.io/hpapi/harry.jpg"
-            }
+            const idToEdit = req.params.id as string;
+            const dataToEdit =req.body;
 
             const updatedData = await characterRepository.updateById(idToEdit, dataToEdit);
 
@@ -126,8 +67,8 @@ export default class CharacterController {
 
     static async delete(req: Request, res: Response) {
         try {
-            const idToDelete = "15e9f7ce4-b3a7-4254-b885-dae5c1f1d4a8";
-
+            const idToDelete = req.params.id as string;
+            
             await characterRepository.deleteById(idToDelete);
 
 
