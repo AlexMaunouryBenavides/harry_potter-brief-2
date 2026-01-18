@@ -2,7 +2,7 @@ import createCharacter from "./createCharacter.js";
 import type { Characters } from "../types/Characters";
 import fetchData from "./fetchData.js";
 export default async function displayCharacter(id: string): Promise<void> {
-  const characters = await fetchData("http://localhost:4000/api/characters/");
+  const characters = await fetchData("https://harry-potter-brief-2.onrender.com/api/characters/");
 
   const character = characters.find((c: Characters) => String(c.id) === id);
   console.log(character);

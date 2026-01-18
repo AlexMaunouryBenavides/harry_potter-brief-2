@@ -1,7 +1,7 @@
 import createCharacter from "./createCharacter.js";
 import fetchData from "./fetchData.js";
 export default async function displayCharacter(id) {
-    const characters = await fetchData("http://localhost:4000/api/characters/");
+    const characters = await fetchData("https://harry-potter-brief-2.onrender.com/api/characters/");
     const character = characters.find((c) => String(c.id) === id);
     console.log(character);
     if (!character) {

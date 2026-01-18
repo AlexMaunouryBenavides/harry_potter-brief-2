@@ -9,7 +9,7 @@ async function init() {
         await displayCharacter(id);
         return;
     }
-    const characters = await fetchData("http://localhost:4000/api/characters/");
+    const characters = await fetchData("https://harry-potter-brief-2.onrender.com/api/characters/");
     displayCards(characters);
     const input = document.querySelector("#filterInput");
     input?.addEventListener("input", (e) => {
