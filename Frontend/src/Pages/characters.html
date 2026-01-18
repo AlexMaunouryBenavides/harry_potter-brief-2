@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aladin&family=Carme&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../output.css" />
+    <title>Document</title>
+  </head>
+  <body class="bg-blackish">
+    <div class="min-h-screen">
+      <header class="flex justify-between items-center py-5 max-w-5/6 m-auto">
+        <img class="h-10 md:h-auto cursor-pointer" src="../assets/img/logo.png" alt="logo" />
+        <img
+          class="drop-shadow-blue-50/30 drop-shadow-xl cursor-pointer"
+          src="../assets/img/hamburger.png"
+          alt="menu hamburger"
+        />
+      </header>
+      <!-- Div filter -->
+      <div>
+        <h1 class="text-center text-orangish font-aladin text-4xl md:py-10 md:text-6xl">
+          Characters
+        </h1>
+        <div class="flex items-center mx-10 justify-between mt-15 md:max-w-125 md:m-auto">
+          <p class="text-bluish font-aladin text-2xl">Filtres</p>
+          <input
+            id="filterInput"
+            class="shadow-[7px_7px_15px_0px_rgba(100,126,148,0.4)] h-9 placeholder-gray-700 px-5 text-orangish"
+            type="search"
+            placeholder="by name, houses, species"
+          />
+        </div>
+      </div>
+      <!-- Div filter end -->
+
+      <div
+        class="flex flex-col gap-10 mt-10 items-center md:flex-row md:flex-wrap md:justify-center"
+        id="characterCardContainer"
+      ></div>
+    </div>
+
+    <footer class="shadow-[0px_-10px_30px_0px_rgba(100,126,148,0.4)]">
+      <p class="font-aladin text-2xl text-orangish-50 text-center py-2.5">
+        made by Maxime, Anis, Mateo, Alex
+      </p>
+    </footer>
+    <script type="module" src="../../dist/main.js"></script>
+  </body>
+</html>

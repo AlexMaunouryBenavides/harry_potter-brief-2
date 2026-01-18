@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@layer theme {
+  :root {
+    /* Fonts */
+    --font-aladin: "Aladin", cursive;
+    --font-carme: "Carme", sans-serif;
+
+    /* Colors */
+    --color-blackish: #0c0e14;
+    --color-orangish: #ca7322;
+    --color-orangish-50: #cbb096;
+    --color-bluish: #627c92;
+    --color-bluish-20: rgba(102, 131, 154, 0.2);
+  }
+}
+
+@layer utilities {
+  .font-aladin {
+    font-family: var(--font-aladin);
+  }
+
+  .font-carme {
+    font-family: var(--font-carme);
+  }
+
+  .text-blackish {
+    color: var(--color-blackish);
+  }
+  .bg-blackish {
+    background-color: var(--color-blackish);
+  }
+
+  .text-orangish {
+    color: var(--color-orangish);
+  }
+  .text-orangish-50 {
+    color: var(--color-orangish-50);
+  }
+  .text-bluish {
+    color: var(--color-bluish);
+  }
+
+  .bg-bluish {
+    background-color: var(--color-bluish);
+  }
+  .bg-bluish-20 {
+    background-color: var(--color-bluish-20);
+  }
+}
