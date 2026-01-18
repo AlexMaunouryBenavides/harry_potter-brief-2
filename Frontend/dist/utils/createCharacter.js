@@ -11,7 +11,7 @@ export default function createCharacter(character) {
 
               <div class="flex gap-2">
                 <span class="text-orange-500 font-semibold">Surname :</span>
-                <span>Potty</span>
+                <span>${character.alternate_names} </span>
               </div>
 
               <div class="flex gap-2">
@@ -26,20 +26,20 @@ export default function createCharacter(character) {
 
               <div class="flex gap-2">
                 <span class="text-orange-500 font-semibold">Hogward Student :</span>
-                <span>Yes</span>
+                <span>${character.hogwartsStudent}</span>
               </div>
 
               <div class="flex gap-2">
                 <span class="text-orange-500 font-semibold">Ancestry :</span>
-                <span>Half-human</span>
+                <span>${character.ancestry}</span>
               </div>
 
               <div class="flex gap-4 items-start">
                 <span class="text-orange-500 font-semibold">Wand:</span>
                 <ul class="list-disc ml-4 space-y-1">
-                  <li>Wood : Holly</li>
-                  <li>Core : Phoenix tail feather</li>
-                  <li>Length : 11</li>
+                  <li>Wood : ${character.wand.wood} </li>
+                  <li>Core : ${character.wand.core}</li>
+                  <li>Length : ${character.wand.length}</li>
                 </ul>
               </div>
             </div>
